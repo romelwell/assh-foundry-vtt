@@ -1,4 +1,4 @@
-#assh-foundry-vtt
+# assh-foundry-vtt
 
 Astonishing Swordsmen & Sorcerers of Hyperborea System for Foundry VTT (Unofficial)
 All the features you need to play AS&SH in Foundry VTT.
