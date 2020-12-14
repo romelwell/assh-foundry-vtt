@@ -1,0 +1,25 @@
+{
+  "name": "assh",
+  "title": "Astonishing Swordsmen & Sorcerers of Hyperborea",
+  "description": "A Role-Playing Game of Swords, Sorcery, and Weird Fantasy from North Wind Adventures",
+  "version": "0.1.0",
+  "minimumCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.5",
+  "templateVersion": 2,
+  "author": "U~man, Rom Elwell, KirkF",
+  "esmodules": ["assh.js"],
+  "styles": ["assh.css"],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "url": "",
+  "manifest": "",
+  "download": ""
+}

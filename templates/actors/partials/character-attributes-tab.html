@@ -1,0 +1,203 @@
+<section class="attributes-tab flexrow">
+    {{!-- Scores --}}
+    <div class="attribute-group">
+        <div class="modifiers-btn">
+            {{#unless isNew}}
+            <a data-action="modifiers" title="{{localize 'ASSH.Modifiers'}}"><i class="fas fa-book"></i></a>
+            {{else}}
+            <a data-action="generate-scores" title="{{localize 'ASSH.dialog.generateScores'}}"><i class="fas fa-dice blinking"></i></a>
+            {{/unless}}
+        </div>
+        <ul class="attributes">
+            <li class="attribute ability-score" data-score="str">
+                <div class="attribute-value">
+                    <input name="data.scores.str.value" type="text" value="{{data.scores.str.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+                <h4 class="attribute-name box-title" title="{{ localize 'ASSH.scores.str.long' }}">
+                    <a>{{ localize "ASSH.scores.str.short" }}</a></h4>
+            </li>
+            <li class="attribute ability-score" data-score="dex">
+                <div class="attribute-value">
+                    <input name="data.scores.dex.value" type="text" value="{{data.scores.dex.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+                <h4 class="attribute-name box-title" title="{{ localize 'ASSH.scores.dex.long' }}">
+                    <a>{{ localize "ASSH.scores.dex.short" }}</a></h4>
+            </li>
+            <li class="attribute ability-score" data-score="con">
+                <div class="attribute-value">
+                    <input name="data.scores.con.value" type="text" value="{{data.scores.con.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+                <h4 class="attribute-name box-title" title="{{ localize 'ASSH.scores.con.long' }}">
+                    <a>{{ localize "ASSH.scores.con.short" }}</a></h4>
+            </li>
+            <li class="attribute ability-score" data-score="int">
+                <div class="attribute-value">
+                    <input name="data.scores.int.value" type="text" value="{{data.scores.int.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+                <h4 class="attribute-name box-title" title="{{ localize 'ASSH.scores.int.long' }}">
+                    <a>{{ localize "ASSH.scores.int.short" }}</a></h4>
+            </li>
+            <li class="attribute ability-score" data-score="wis">
+                <div class="attribute-value">
+                    <input name="data.scores.wis.value" type="text" value="{{data.scores.wis.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+                <h4 class="attribute-name box-title" title="{{ localize 'ASSH.scores.wis.long' }}">
+                    <a>{{ localize "ASSH.scores.wis.short" }}</a></h4>
+            </li>
+            <li class="attribute ability-score" data-score="cha">
+                <div class="attribute-value">
+                    <input name="data.scores.cha.value" type="text" value="{{data.scores.cha.value}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+                <h4 class="attribute-name box-title" title="{{ localize 'ASSH.scores.cha.long' }}">
+                    <a>{{ localize "ASSH.scores.cha.short" }}</a></h4>
+            </li>
+            {{#if data.retainer.enabled}}
+            <li class="attribute ability-score" data-stat="lr">
+                <h4 class="attribute-name box-title" title="{{ localize 'ASSH.Loyalty' }}">
+                    <a>{{ localize "ASSH.LoyaltyShort" }}</a>
+                </h4>
+                <div class="attribute-value">
+                    <input name="data.retainer.loyalty" type="text" value="{{data.retainer.loyalty}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+    {{!-- Resource Tracking --}}
+    <div class="resources">
+        <div class="flexrow">
+            <div class="health">
+                <input class="health-value health-top" name="data.hp.value" type="text" value="{{data.hp.value}}"
+                    data-dtype="Number" placeholder="0" title="{{localize 'ASSH.Health'}}" />
+                <input class="health-value health-bottom" name="data.hp.max" type="text" value="{{data.hp.max}}"
+                    data-dtype="Number" placeholder="0" title="{{localize 'ASSH.HealthMax'}}" />
+                <div class="health-empty" style="height:{{counter false data.hp.value data.hp.max}}%"></div>
+                <div class="health-full" style="height:{{counter true data.hp.value data.hp.max}}%"></div>
+            </div>
+            <div class="health armor-class">
+                <div class="health-value health-top" title="{{localize 'ASSH.ArmorClass'}}">{{data.ac.value}}</div>
+                <div class="health-value health-bottom" title="{{localize 'ASSH.ArmorClassNaked'}}">
+                    {{data.ac.naked}}</div>
+                    {{#if data.ac.shield}}<div class="shield" title="{{localize 'ASSH.items.hasShield'}} ({{data.ac.shield}})">
+                        <i class="fas fa-shield-alt"></i></div>{{/if}}
+            </div>
+        </div>
+        <div class="flexrow">
+            <ul class="attributes flexrow">
+                <li class="attribute hit-dice">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ASSH.HitDice' }}">
+                        <a>{{ localize "ASSH.HitDiceShort" }}</a>
+                    </h4>
+                    <div class="attribute-value">
+                        <input name="data.hp.hd" type="text" value="{{data.hp.hd}}" placeholder=""
+                            data-dtype="String" />
+                    </div>
+                </li>
+                <li class="attribute attribute-secondaries">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ASSH.fightingAbility.long' }}">
+                        <a>{{ localize "ASSH.fightingAbility.short" }}</a>
+                    </h4>
+                    <div class="attribute-value">
+                        <input name="data.fa.value" type="text" value="{{data.fa.value}}" placeholder="0"
+                            data-dtype="Number" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="flexrow">
+            <ul class="attributes flexrow">
+                <li class="attribute attribute-secondaries">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ASSH.castingAbility.long' }}">
+                        <a>{{ localize "ASSH.castingAbility.short" }}</a>
+                    </h4>
+                    <div class="attribute-value">
+                        <input name="data.ca.value" type="text" value="{{data.ca.value}}" placeholder="0"
+                            data-dtype="Number" />
+                    </div>
+                </li>
+                <li class="attribute attribute-secondaries">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ASSH.turningAbility.long' }}">
+                        <a>{{ localize "ASSH.turningAbility.short" }}</a>
+                    </h4>
+                    <div class="attribute-value">
+                        <input name="data.ta.value" type="text" value="{{data.ta.value}}" placeholder="0"
+                            data-dtype="Number" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="flexrow">
+            <ul class="attributes flexrow">
+                <li class="attribute">
+                    <h4 class="attribute-name box-title" title="{{ localize 'ASSH.movement.short' }}">
+                        {{ localize "ASSH.movement.short" }}</h4>
+                    <div class="attribute-value flexrow">
+                        <input name="data.mv.value" type="text" value="{{data.mv.value}}" placeholder="0"
+                            data-dtype="Number" {{#if data.config.movementAuto}}disabled{{/if}} />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{!-- Saving throws --}}
+    <div class="attribute-group">
+        <ul class="attributes">
+            <li class="attribute saving-throw" data-save="savingthrow">
+                <h4 class="attribute-name box-title">
+                    {{ localize "ASSH.saves.savingThrow.long" }}</h4>
+                <div class="attribute-value">
+                    <input name="data.saves.savingthrow.base" type="text" value="{{data.saves.savingthrow.base}}" placeholder="0"
+                        data-dtype="Number" disabled />
+                </div>
+            </li>
+            <p>Modifiers:
+            <li class="attribute saving-throw" data-save="death">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ASSH.saves.death.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.death.mod" type="text" value="{{data.saves.death.mod}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute saving-throw" data-save="transformation">
+                <h5 class="attribute-name box-title">
+                    <a>{{ localize "ASSH.saves.transformation.long" }}</a></h5>
+                <div class="attribute-value">
+                    <input name="data.saves.transformation.mod" type="text" value="{{data.saves.transformation.mod}}"
+                        placeholder="0" data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute saving-throw" data-save="device">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ASSH.saves.device.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.device.mod" type="text" value="{{data.saves.device.mod}}" placeholder="0"
+                        data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute saving-throw" data-save="avoidance">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ASSH.saves.avoidance.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.avoidance.mod" type="text" value="{{data.saves.avoidance.mod}}"
+                        placeholder="0" data-dtype="Number" />
+                </div>
+            </li>
+            <li class="attribute saving-throw" data-save="sorcery">
+                <h4 class="attribute-name box-title">
+                    <a>{{ localize "ASSH.saves.sorcery.long" }}</a></h4>
+                <div class="attribute-value">
+                    <input name="data.saves.sorcery.mod" type="text" value="{{data.saves.sorcery.mod}}"
+                        placeholder="0" />
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
